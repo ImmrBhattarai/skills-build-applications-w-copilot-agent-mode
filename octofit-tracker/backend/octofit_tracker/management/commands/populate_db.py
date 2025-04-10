@@ -21,32 +21,21 @@ class Command(BaseCommand):
         # Create Teams
         teams = {}
         for team_data in test_teams:
-            team = Team.objects.create(name=team_data['name'])
+            team = Team.objects.create(name=team_data['name'], description=team_data['description'])
             teams[team_data['name']] = team
 
         # Create Activities
+        activities = {}
         for activity_data in test_activities:
-            Activity.objects.create(
-                user=users[activity_data['user_email']],
-                activity_type=activity_data['activity_type'],
-                duration=activity_data['duration'],
-                calories_burned=activity_data['calories_burned'],
-                date=activity_data['date']
-            )
+            activity = Activity.objects.create(name=activity_data['name'], duration=activity_data['duration'])
+            activities[activity_data['name']] = activity
 
-        # Create Leaderboard
+        # Create Leaderboard Entries
         for leaderboard_data in test_leaderboard:
-            Leaderboard.objects.create(
-                team=teams[leaderboard_data['team_name']],
-                points=leaderboard_data['points']
-            )
+            Leaderboard.objects.create(user=users[leaderboard_data['user_email']], score=leaderboard_data['score'])
 
         # Create Workouts
         for workout_data in test_workouts:
-            Workout.objects.create(
-                name=workout_data['name'],
-                duration=workout_data['duration'],
-                calories_burned=workout_data['calories_burned']
-            )
+            Workout.objects.create(user=users[workout_data['user_email']], activity=activities[workout_data['activity_name']], date=workout_data['date'])
 
         self.stdout.write(self.style.SUCCESS('Database populated with test data.'))
