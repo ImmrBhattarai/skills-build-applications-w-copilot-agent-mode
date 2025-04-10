@@ -1,26 +1,29 @@
-# Test data for Octofit Tracker
+from bson import ObjectId
 
 test_users = [
-    {"email": "alice@example.com", "name": "Alice"},
-    {"email": "bob@example.com", "name": "Bob"},
+    {"_id": ObjectId(), "username": "thundergod", "email": "thundergod@mhigh.edu", "password": "thundergodpassword"},
+    {"_id": ObjectId(), "username": "metalgeek", "email": "metalgeek@mhigh.edu", "password": "metalgeekpassword"},
+    {"_id": ObjectId(), "username": "zerocool", "email": "zerocool@mhigh.edu", "password": "zerocoolpassword"},
+    {"_id": ObjectId(), "username": "crashoverride", "email": "crashoverride@hmhigh.edu", "password": "crashoverridepassword"},
+    {"_id": ObjectId(), "username": "sleeptoken", "email": "sleeptoken@mhigh.edu", "password": "sleeptokenpassword"},
 ]
 
 test_teams = [
-    {"name": "Team Red"},
-    {"name": "Team Blue"},
+    {"_id": ObjectId(), "name": "Team Thunder", "members": ["thundergod", "metalgeek"]},
+    {"_id": ObjectId(), "name": "Team Cool", "members": ["zerocool", "crashoverride"]},
 ]
 
 test_activities = [
-    {"user_email": "alice@example.com", "activity_type": "Running", "duration": 25, "calories_burned": 250, "date": "2025-04-05"},
-    {"user_email": "bob@example.com", "activity_type": "Swimming", "duration": 40, "calories_burned": 400, "date": "2025-04-06"},
+    {"_id": ObjectId(), "user": "thundergod", "activity": "Running", "duration": 30},
+    {"_id": ObjectId(), "user": "metalgeek", "activity": "Cycling", "duration": 45},
 ]
 
 test_leaderboard = [
-    {"team_name": "Team Red", "points": 120},
-    {"team_name": "Team Blue", "points": 100},
+    {"_id": ObjectId(), "team": "Team Thunder", "points": 100},
+    {"_id": ObjectId(), "team": "Team Cool", "points": 80},
 ]
 
 test_workouts = [
-    {"name": "Cardio Blast", "duration": 30, "calories_burned": 300},
-    {"name": "Strength Training", "duration": 45, "calories_burned": 350},
+    {"_id": ObjectId(), "name": "Morning Run", "duration": 30, "calories_burned": 300},
+    {"_id": ObjectId(), "name": "Evening Yoga", "duration": 60, "calories_burned": 200},
 ]
