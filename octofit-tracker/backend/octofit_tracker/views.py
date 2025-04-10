@@ -7,11 +7,11 @@ from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, Lea
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'users': '/users/',
-        'teams': '/teams/',
-        'activities': '/activities/',
-        'leaderboards': '/leaderboards/',
-        'workouts': '/workouts/',
+        'users': 'https://miniature-succotash-p9g9w6rrprgc79qj-8000.app.github.dev/users/',
+        'teams': 'https://miniature-succotash-p9g9w6rrprgc79qj-8000.app.github.dev/teams/',
+        'activities': 'https://miniature-succotash-p9g9w6rrprgc79qj-8000.app.github.dev/activities/',
+        'leaderboards': 'https://miniature-succotash-p9g9w6rrprgc79qj-8000.app.github.dev/leaderboards/',
+        'workouts': 'https://miniature-succotash-p9g9w6rrprgc79qj-8000.app.github.dev/workouts/',
     })
 
 class UserViewSet(viewsets.ModelViewSet):

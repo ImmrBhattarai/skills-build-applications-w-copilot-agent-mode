@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-f1@z*4wq--r^i80v3en6dgp#qmw9==peay(9wwvv7p!56uf6r^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'miniature-succotash-p9g9w6rrprgc79qj-8000.app.github.dev', 'localhost']
 
 
 # Application definition
@@ -75,13 +75,11 @@ WSGI_APPLICATION = "octofit_tracker.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# Add the djongo database engine configuration
+# Update the database configuration to use SQLite
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'octofit_db',
-        'HOST': 'localhost',
-        'PORT': 27017,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
